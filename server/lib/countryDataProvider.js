@@ -21,9 +21,9 @@ countryDataProvider.getCountryData = async (countrySearchParams) => {
 
   /**
    * This code allows us to account for the formatting differences between the multiple endpoints.
-   * The alpha code endpoints return the data just as one single object, whereas the name endpoints
-   * return it as an array of objects. So, if it's an alpha code endpoint that we've called then we
-   * just wrap the data in an array so that _massageCountryData and _aggregateCountry Data can
+   * The alpha code endpoint returns the data just as one single object, whereas the name endpoints
+   * return it as an array of objects. So, if it's the alpha code endpoint that we've called then we
+   * just wrap the data in an array so that massageCountryData and aggregateCountry Data can
    * process all data regardless of where it originated.
    */
   let rawCountryData = restCountryResponse.data;

@@ -17,7 +17,12 @@ function App() {
 
   const handleSearch = () => {
     if (!isInputValid()) {
-      // TODO: It would be nice to have this message shown directly on the page instead of through an alert
+      /**
+       * TODO:
+       * It would be nice to have this message shown directly on the page instead of through an alert.
+       * Also, we should expand validation to handle different cases, e.g. only strings of length 2 or 3
+       * would be allowed in the 'Alpha Code' field.
+       */
       alert("Please enter a single value in the input form");
     } else {
       retrieveAndSetCountryData();
@@ -25,12 +30,13 @@ function App() {
   };
 
   const retrieveAndSetCountryData = () => {
-    let searchParams = {
+    const searchParams = {
       params: {},
     };
 
     /**
-     * TODO: The logic to assign the search params could be pulled into a separate module,
+     * TODO:
+     * The logic to assign the search params could be pulled into a separate module,
      * which would make this code more testable.
      */
     if (name !== "") {
@@ -61,6 +67,7 @@ function App() {
       });
   };
 
+  //TODO: Just make the UI look less plain. Add some more color and styles and maybe justify the text more.
   return (
     <div className="App">
       <h1>Country Search</h1>
