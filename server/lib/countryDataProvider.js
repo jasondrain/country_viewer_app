@@ -31,8 +31,8 @@ countryDataProvider.getCountryData = async (countrySearchParams) => {
     rawCountryData = [rawCountryData];
   }
 
-  let filteredCountryDataArray = massageCountryData(rawCountryData);
-  let aggregatedCountryData = aggregateCountryData(rawCountryData);
+  const filteredCountryDataArray = massageCountryData(rawCountryData);
+  const aggregatedCountryData = aggregateCountryData(rawCountryData);
 
   return {
     countryData: filteredCountryDataArray,
@@ -42,7 +42,7 @@ countryDataProvider.getCountryData = async (countrySearchParams) => {
 
 function aggregateCountryData(rawCountryData) {
   let numberOfCountries = 0;
-  let subregionsObj = {};
+  const subregionsObj = {};
 
   for (const country of rawCountryData) {
     if (!subregionsObj.hasOwnProperty(country.subregion)) {
@@ -52,7 +52,7 @@ function aggregateCountryData(rawCountryData) {
     numberOfCountries++;
   }
 
-  let subregionsArray = [];
+  const subregionsArray = [];
   for (const [subregionName, subregionCount] of Object.entries(subregionsObj)) {
     subregionsArray.push({
       subregionName: subregionName,

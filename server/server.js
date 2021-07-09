@@ -4,6 +4,7 @@ const dataProvider = require("./lib/countryDataProvider");
 const app = express();
 const port = 3001;
 
+// TODO: Add more restrictive CORS policy, maybe?
 app.use(cors());
 
 app.get("/countryData", (req, res) => {
@@ -12,14 +13,11 @@ app.get("/countryData", (req, res) => {
     searchType: req.query.searchType,
   };
 
-  console.log(`countrySearchParams :: ${JSON.stringify(countrySearchParams)}`);
-
   dataProvider.getCountryData(countrySearchParams).then((countryData) => {
-    console.log(countryData);
     res.send(countryData);
   });
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`REST Countries App listening at http://localhost:${port}`);
 });
