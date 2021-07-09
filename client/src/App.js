@@ -29,6 +29,10 @@ function App() {
       params: {},
     };
 
+    /**
+     * TODO: The logic to assign the search params could be pulled into a separate module,
+     * which would make this code more testable.
+     */
     if (name !== "") {
       searchParams.params.searchType = "name";
       searchParams.params.searchTerm = name;
